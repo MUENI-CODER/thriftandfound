@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item | Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Thrift & Found</h1>
+                <span>admin dashboard</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="admin.html">Applications</a></li>
+                <li><a href="admin-inventory.html">Inventory</a></li>
+                <li><a href="admin-add-item.html" class="active">Add Item</a></li>
+                <li><a href="admin-login.html" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <h1 class="section-title" style="margin-top: 0;">Add New Clothing Item</h1>
+            
+            <form id="add-item-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Item Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="womens">Women's</option>
+                        <option value="mens">Men's</option>
+                        <option value="vintage">Vintage</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="outerwear">Outerwear</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Price ($) *</label>
+                    <input type="number" id="price" name="price" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="image">Product Image *</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                    <small style="color: #666;">Recommended size: 800x600px. Max file size: 5MB</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="featured">
+                        <input type="checkbox" id="featured" name="featured" value="1">
+                        Feature this item on homepage
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">Add Item</button>
+            </form>
+            
+            <div id="form-message" style="margin-top: 20px; text-align: center;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('add-item-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const messageDiv = document.getElementById('form-message');
+            
+            messageDiv.innerHTML = '<p style="color: #ffc857;">Uploading... Please wait.</p>';
+            
+            try {
+                const response = await fetch('backend/add-inventory-item.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    messageDiv.innerHTML = '<p style="color: #2c6e3c; background: #e0f2e6; padding: 12px; border-radius: 8px;">✓ Item added successfully!</p>';
+                    e.target.reset();
+                } else {
+                    messageDiv.innerHTML = `<p style="color: #721c24; background: #f8d7da; padding: 12px; border-radius: 8px;">✗ ${result.message}</p>`;
+                }
+            } catch (error) {
+                messageDiv.innerHTML = '<p style="color: #721c24; background: #f8d7da; padding: 12px; border-radius: 8px;">✗ Upload failed. Please try again.</p>';
+            }
+            
+            setTimeout(() => {
+                messageDiv.innerHTML = '';
+            }, 5000);
+        });
+        
+        // Logout function
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            document.cookie = "admin_logged_in=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        });
+    </script>
+
+</body>
+</html>

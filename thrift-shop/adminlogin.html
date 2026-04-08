@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Thrift & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background: linear-gradient(135deg, #1e3a2f 0%, #2a4a3a 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+
+    <div class="login-container">
+        <h1 style="color: #1e3a2f; margin-bottom: 10px;">Thrift & Found</h1>
+        <h2>Admin Portal</h2>
+        
+        <form action="backend/admin-auth.php" method="POST" style="margin-top: 30px;">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required style="width: 100%;">
+            </div>
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Login</button>
+        </form>
+        
+        <p style="margin-top: 25px; font-size: 0.85rem; color: #7a8c7a;">
+            Demo credentials: EMILIA / 0042027
+        </p>
+    </div>
+
+</body>
+</html>

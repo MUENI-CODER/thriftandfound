@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details | Thrift & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Thrift & Found</h1>
+                <span>secondhand style, firsthand finds</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                 <li><a href="/admin-login.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="item-detail-container">
+        <p style="text-align: center; padding: 60px;">Loading item details...</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thrift & Found</h3>
+                <p>Secondhand style, firsthand finds. Sustainable fashion for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="jobs.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>Masii Town<br>Generation Building,Along Machakos-Kitui Road</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Thrift & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load item details from localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const itemData = localStorage.getItem('selectedItem');
+            
+            if (itemData) {
+                const item = JSON.parse(itemData);
+                displayItemDetail(item);
+            } else {
+                // Try to get from URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const itemId = urlParams.get('id');
+                
+                if (itemId) {
+                    // Fetch item from inventory (you would need to load inventory here)
+                    document.getElementById('item-detail-container').innerHTML = '<p style="text-align: center;">Loading...</p>';
+                } else {
+                    document.getElementById('item-detail-container').innerHTML = `
+                        <div class="item-detail" style="text-align: center; padding: 60px;">
+                            <h2>No item selected</h2>
+                            <a href="shop.html" class="btn">Browse Shop</a>
+                        </div>
+                    `;
+                }
+            }
+        });
+        
+        function displayItemDetail(item) {
+            const container = document.getElementById('item-detail-container');
+            container.innerHTML = `
+                <div class="item-detail">
+                    <img src="images/${item.img}" alt="${item.name}" onerror="this.src='${item.fallback}'">
+                    <div class="item-detail-content">
+                        <span class="category-badge">${item.category.toUpperCase()}</span>
+                        <h1>${escapeHtml(item.name)}</h1>
+                        <p class="description">${escapeHtml(item.description)}</p>
+                        <a href="shop.html" class="btn">← Back to Shop</a>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+
+</body>
+</html>

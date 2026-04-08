@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Thrift & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Thrift & Found</h1>
+                <span>admin dashboard</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html" class="active">Dashboard</a></li>
+                <li><a href="admin-login.html" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 style="color: #1e3a2f;">Job Applications</h1>
+            <button class="btn" onclick="refreshApplications()">Refresh</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Position</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Availability</th>
+                        <th>Experience</th>
+                        <th>Why Join</th>
+                        <th>Resume</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="applications-table">
+                    <tr>
+                        <td colspan="12" style="text-align: center;">Loading applications...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer style="margin-top: 60px;">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thrift & Found</h3>
+                <p>Administrative Dashboard</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thrift & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

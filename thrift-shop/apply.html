@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply | Thrift & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Thrift & Found</h1>
+                <span>secondhand style, firsthand finds</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin-login.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <h1 class="section-title" style="margin-top: 0;">Job Application</h1>
+            <p style="text-align: center; margin-bottom: 30px; color: #5a6b5a;">We're excited to learn more about you. Complete the form below to apply.</p>
+
+            <form id="application-form" action="backend/send-application.php" method="POST">
+                <div class="form-group">
+                    <label for="job">Position Applying For *</label>
+                    <select id="job" name="job" required>
+                        <option value="">Select a position</option>
+                        <option value="Sales Associate">Sales Associate</option>
+                        <option value="Clothing Sorter & Pricer">Clothing Sorter & Pricer</option>
+                        <option value="Vintage Curator">Vintage Curator</option>
+                        <option value="Store Manager">Store Manager</option>
+                        <option value="Social Media & Marketing Specialist">Social Media & Marketing Specialist</option>
+                        <option value="Donation Intake Coordinator">Donation Intake Coordinator</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="availability">Availability *</label>
+                    <select id="availability" name="availability" required>
+                        <option value="">Select availability</option>
+                        <option value="Full-time (40 hours/week)">Full-time (40 hours/week)</option>
+                        <option value="Part-time (20-25 hours/week)">Part-time (20-25 hours/week)</option>
+                        <option value="Weekends Only">Weekends Only</option>
+                        <option value="Flexible">Flexible</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Relevant Experience</label>
+                    <textarea id="experience" name="experience" rows="4" placeholder="Tell us about any retail, fashion, customer service, vintage curation, or relevant experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="why">Why do you want to work at Thrift & Found? *</label>
+                    <textarea id="why" name="why" rows="4" required placeholder="We'd love to know what draws you to thrift, sustainability, and our shop community."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Resume/CV Link (optional)</label>
+                    <input type="text" id="resume" name="resume" placeholder="Google Drive, Dropbox, or LinkedIn link">
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+            </form>
+
+            <div id="form-message" style="margin-top: 20px; text-align: center;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thrift & Found</h3>
+                <p>Secondhand style, firsthand finds. Sustainable fashion for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="jobs.html">Careers</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin-login.html">Admin</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>
+                    Masii Town<br>
+                    Generation Building<br>
+                    Along Machakos-Kitui Road
+                </p>
+                <p style="margin-top: 10px;">
+                    📞 (555) 123-4567<br>
+                    ✉️ hello@thriftandfound.com
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Store Hours</h3>
+                <p>
+                    Monday - Saturday: 10am - 7pm<br>
+                    Sunday: 11am - 5pm
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thrift & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/apply.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Thrift & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Thrift & Found</h1>
+                <span>secondhand style, firsthand finds</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="admin-login.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <h1 class="section-title" style="margin-top: 0;">Get in Touch</h1>
+            
+            <div style="text-align: center; margin-bottom: 35px; padding: 20px; background: #fef9f0; border-radius: 20px;">
+                <p style="margin: 8px 0;"><strong>Location:</strong> Masii Town, Generation Building, Along Machakos-Kitui Road</p>
+                <p style="margin: 8px 0;"><strong>Phone:</strong> (555) 123-4567</p>
+                <p style="margin: 8px 0;"><strong>Email:</strong> hello@thriftandfound.com</p>
+                <p style="margin: 8px 0;"><strong>Hours:</strong> Monday-Saturday: 10am-7pm | Sunday: 11am-5pm</p>
+            </div>
+
+            <form id="contact-form" action="backend/send-contact.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+            <div id="contact-message" style="margin-top: 20px; text-align: center;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thrift & Found</h3>
+                <p>Secondhand style, firsthand finds. Sustainable fashion for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="jobs.html">Careers</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin-login.html">Admin</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>
+                    Masii Town<br>
+                    Generation Building<br>
+                    Along Machakos-Kitui Road
+                </p>
+                <p style="margin-top: 10px;">
+                    📞 (+254) 123-4567<br>
+                     hello@thriftandfound.com
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Store Hours</h3>
+                <p>
+                    Monday - Saturday: 10am - 7pm<br>
+                    Sunday: 11am - 5pm
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;  Thrift & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
