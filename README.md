@@ -29,3 +29,14 @@ A complete thrift shop website with job application system.
 - InfinityFree hosting
 
 ## Folder Structure
+
+## Setup Instructions
+
+1. Upload all files to your web host
+2. Set permissions for `uploads/` folder to 755
+3. Access admin panel at `/admin-login.html`
+
+
+MUENI
+
+
