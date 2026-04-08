@@ -1,0 +1,9 @@
+# Exclude uploads folder (CV files)
+uploads/
+
+# Exclude any password files
+.htpasswd
+
+# Exclude system files
+.DS_Store
+Thumbs.db
